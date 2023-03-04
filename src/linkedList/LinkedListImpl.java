@@ -76,7 +76,6 @@ public class LinkedListImpl {
             System.out.print(current.data + "->");
             current = current.next;
         }
-        System.out.println();
     }
 
     public void getSize() {
@@ -84,20 +83,40 @@ public class LinkedListImpl {
     }
 
 
+    public void reverseIterate() {
+      Link previous = null;
+      Link current = head;
+      while(current!=null){
+          Link next = current.next;
+          current.next = previous;
+
+          previous = current;
+          current = next;
+      }
+      head = previous;
+
+    }
+
     public static void main(String[] args) {
         LinkedListImpl l = new LinkedListImpl();
         l.addFirst(5);
         l.addFirst(4);
         l.addLast(6);
+        l.addLast(7);
+        l.addLast(8);
+        l.getAllData();
+        l.reverseIterate();
+        l.getAllData();
 
-        l.getAllData();
-        l.getSize();
-        l.deleteFirst();
-        l.getAllData();
-        l.getSize();
-        l.deleteLast();
-        l.getAllData();
-        l.getSize();
+//
+//        l.getAllData();
+//        l.getSize();
+//        l.deleteFirst();
+//        l.getAllData();
+//        l.getSize();
+//        l.deleteLast();
+//        l.getAllData();
+//        l.getSize();
 
     }
 
